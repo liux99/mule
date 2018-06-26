@@ -1,0 +1,6 @@
+---
+applications:
+- name: hellopcf
+  memory: 28M
+  instances: 1
+  random-route: true
