@@ -5,7 +5,7 @@ ENV MULE_VERSION 3.9.0
 WORKDIR /opt
 RUN useradd --user-group --shell /bin/false mule && chown mule /opt 
 USER mule
-RUN wget https://s3.amazonaws.com/new-mule-artifacts/mule-ee-distribution-standalone-${MULE_VERSION}.zip \
+RUN wget https://repository-master.mulesoft.org/nexus/content/repositories/releases/org/mule/distributions/mule-standalone/${MULE_VERSION}/mule-standalone-${MULE_VERSION}.zip \
 	&& unzip *.zip \
 	&& ln -s mule-enterprise-standalone-${MULE_VERSION} mule && rm mule-ee-distribution-standalone-${MULE_VERSION}.zip
 
@@ -25,7 +25,7 @@ VOLUME ["/opt/mule/logs", "/opt/mule/conf", "/opt/mule/apps", "/opt/mule/domains
 WORKDIR /opt/mule
 #
  
-CMD ["/opt/mule/bin/mule" ]
+#CMD ["/opt/mule/bin/mule" ]
 #
 # # Default http port
 EXPOSE 8081
